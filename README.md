@@ -1,6 +1,6 @@
 # SmartSlides
 
-![image](https://user-images.githubusercontent.com/67565283/213940443-964ec838-6fe6-4515-9d43-a43697c73950.png)
+![image](https://user-images.githubusercontent.com/67565283/213940567-5b90bbce-4c30-4a2b-810a-e30cd30d6dc6.png)
 
 AI-powered presentation generator, built with Next.js and Typescript, taking advantage of OpenAI's Dall-E image composition and Davinci GPT-003 AI's to create well-rounded, professional generated slides and custom photos - all you need is an idea!
 
