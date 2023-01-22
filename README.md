@@ -1,6 +1,6 @@
 # SmartSlides
 
-https://cdn.discordapp.com/attachments/1064657270601953300/1066820529849389076/DALLE_2023-01-22_12.43.48.png
+![image](https://user-images.githubusercontent.com/67565283/213940443-964ec838-6fe6-4515-9d43-a43697c73950.png)
 
 AI-powered presentation generator, built with Next.js and Typescript, taking advantage of OpenAI's Dall-E image composition and Davinci GPT-003 AI's to create well-rounded, professional generated slides and custom photos - all you need is an idea!
 
