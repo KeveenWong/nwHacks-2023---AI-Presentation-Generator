@@ -22,8 +22,16 @@ export default function Mainpage() {
         setColor(color)
       }    
     let [setstatuscolor,toSuccess] = React.useState<NormalColors>(setstatuscolors)
-    let [desc, setDesc] = React.useState<string>("")
+    let [value, setValue] = React.useState<number>();
+    let [keywords , setKeywords] = React.useState<any>("")
+    let [desc, setDesc] = React.useState<any>("")
     let [keydesc, keysetDesc] = React.useState<string>("Optional")
+    let [title, setTitle] = React.useState<any>("")
+
+    const handleSliderChange = (event: Event, newValue: number | number[]) => {
+          setValue(newValue as number);
+      };
+    
      const {
         value: controlledValue,
         setValue: setControlledValue,
@@ -61,18 +69,31 @@ export default function Mainpage() {
           fullWidth = {true}
           size = "xl"
           status = {setstatuscolor}
+          value = {title}
+          onChange = {(text) => setTitle(title = text.target.value)}
         />
           <Spacer y = {2.5}/>
+
+
           <Text h3>Pick a color for presentation theme</Text>
           <MuiColorInput value={color} onChange={handleChange} />
           <Spacer y = {2.5}/>
+
+
           <Text h3>Select the number of Slides</Text>
-          <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" max= {25}/>
+          <Slider defaultValue={50} value={value} aria-label="Default" valueLabelDisplay="auto" max= {25}  onChange={handleChange}/>
           <Spacer y = {2.5}/>
+
+
           <Text h3>Description</Text>
           <Textarea fullWidth={true} placeholder='Enter your description'{...bindings} status = {setstatuscolor} minRows={8}
-          maxRows={15} width = {"xl"} size = "xl"/>
+          maxRows={15} width = {"xl"} size = "xl"
+          value={desc}
+          onChange = {(text) => {setDesc(desc = text.target.value)}}
+          />
           <Spacer y = {2.5}/>
+
+
           <Text h3>Keywords</Text>
           <Input
           clearable
@@ -80,6 +101,8 @@ export default function Mainpage() {
           fullWidth = {true}
           size = "xl"
           status = {setstatuscolor}
+          value = {keywords}
+          onChange = {(text) => setKeywords(keywords = text.target.value)}
         />
         <Spacer y = {4}/>
         <Row justify='center'>
