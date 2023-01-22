@@ -5,6 +5,7 @@ import styles from '@/styles/Home.module.css'
 import { Text, Button, Spacer, Input, Col, Row } from "@nextui-org/react";
 import { useRouter } from 'next/navigation';
 import { DalleAPI } from './api/images/generate';
+import  parseText  from './api/text/parser'
 
 
 const inter = Inter({ subsets: ['latin'] })
