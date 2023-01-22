@@ -30,7 +30,7 @@ export async function createPresentation(title: string, pages: [string, string, 
                 
             ],
         } as any);
-        console.log((presentation.data as any).slides[0].objectId)
+        // console.log((presentation.data as any).slides[0].objectId)
         let requests: any[] = [
             // {
             //     createSlide: {
@@ -78,7 +78,7 @@ export async function createPresentation(title: string, pages: [string, string, 
             const pageId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
             const titleId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
             const textId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-            const imageId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+            const notesId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
             // create a title page
             requests = [...requests,
             //     {
@@ -109,6 +109,7 @@ export async function createPresentation(title: string, pages: [string, string, 
                             "objectId": textId,
                         }
                     ],
+
                 }
             },
             // Insert the title
@@ -125,35 +126,37 @@ export async function createPresentation(title: string, pages: [string, string, 
                     insertionIndex: 0,
                     text: text
                 }
-            },
+            }
             // Insert the image
-            {
-                createImage: {
-                    elementProperties: {
-                        pageObjectId: pageId,
-                        size: {
-                            width: {
-                                magnitude: 300,
-                                unit: 'PT'
+            ];
+            if(imageUrl != "") {
+                requests.push({
+                    createImage: {
+                        elementProperties: {
+                            pageObjectId: pageId,
+                            size: {
+                                width: {
+                                    magnitude: 300,
+                                    unit: 'PT'
+                                },
+                                height: {
+                                    magnitude: 300,
+                                    unit: 'PT'
+                                }
                             },
-                            height: {
-                                magnitude: 300,
+                            // Put on right side of slide
+                            transform: {
+                                scaleX: 1,
+                                scaleY: 1,
+                                translateX: 300,
+                                translateY: 0,
                                 unit: 'PT'
                             }
                         },
-                        // Put on right side of slide
-                        transform: {
-                            scaleX: 1,
-                            scaleY: 1,
-                            translateX: 300,
-                            translateY: 0,
-                            unit: 'PT'
-                        }
-                    },
-                    url: imageUrl
-                }
+                        url: imageUrl
+                    }
+                })
             }
-            ];
 
             // execute the requests
         }

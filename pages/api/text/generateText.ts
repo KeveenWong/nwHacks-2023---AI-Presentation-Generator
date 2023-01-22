@@ -1,23 +1,34 @@
-export async function generateText(apiKey: string, prompt: string) {
-    try {
-        const response = await fetch('https://api.openai.com/v1/engines/davinci/completions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`,
-            },
-            body: JSON.stringify({ prompt }),
-        });
+import { useState } from "react";
 
-        if (!response.ok) {
+import { Configuration, OpenAIApi } from "openai";
+import {token} from '../../../openai-token.json';
+
+const configuration = new Configuration({
+  apiKey: token,
+});
+const openai = new OpenAIApi(configuration);
+
+export async function generateText(prompt: string) {
+    try {
+        console.log(prompt);
+        const response = await openai.createCompletion(
+          {
+            model: 'text-davinci-003',
+            max_tokens: 1500,
+            temperature: 0.7,
+            top_p: 1,
+            prompt
+          }
+        );
+        // check if the request was successful
+        if (response.status !== 200) {
             throw new Error(response.statusText);
         }
+        console.log(response.data);
+        return response.data.choices[0].text;
 
-        const data = await response.json();
-        console.log(data);
-        return data.data.url;
-    } catch (err) {
+      } catch (err) {
         console.log(err);
         return '';
-    }
+      }
 }
