@@ -2,10 +2,14 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
+import { Text, Button, Spacer, Input, Col, Row } from "@nextui-org/react";
+import { useRouter } from 'next/navigation';
+
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const router = useRouter();
   return (
     <>
       <Head>
@@ -15,7 +19,39 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1 className={styles.title}>AI PRESENTATION GENERATOR</h1>
+      <Text
+        h1
+        size={120}
+        css={{
+          textGradient: "45deg, $blue600 -20%, $pink600 25%",
+        }}
+        weight="bold"
+      >
+        Make
+      </Text>
+      <Text
+        h1
+        size={120}
+        css={{
+          textGradient: "45deg, $purple600 -20%, $pink600 100%",
+        }}
+        weight="bold"
+      >
+        Presentations
+      </Text>
+      <Text
+        h1
+        em
+        size={120}
+        css={{
+          textGradient: "45deg, $yellow600 -20%, $red600 100%",
+        }}
+        weight="bold"
+      >
+        Fast
+      </Text>
+      <Spacer y ={10} />
+        <Button size="xl" color={"gradient"} shadow onClick={() => router.push('/mainpage')}>Get Started</Button>
       </main>
     </>
   )
