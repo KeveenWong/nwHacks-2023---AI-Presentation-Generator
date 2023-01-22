@@ -13,7 +13,7 @@ export const DalleAPI = {
       try {
         const response = await openai.createImage(
           {
-            prompt: prompt,
+            prompt: prompt + ". No Text.",
             n: 1,
             size: "512x512",
           }
