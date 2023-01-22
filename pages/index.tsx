@@ -4,6 +4,7 @@ import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { Text, Button, Spacer, Input, Col, Row } from "@nextui-org/react";
 import { useRouter } from 'next/navigation';
+import { DalleAPI } from './api/images/generate';
 
 
 const inter = Inter({ subsets: ['latin'] })
