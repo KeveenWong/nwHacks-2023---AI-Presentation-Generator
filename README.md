@@ -22,6 +22,11 @@ The front-end was built using React, NextUI and Material-UI elements.
 
 The back-end was built with TypeScript, Next.js and Google/OpenAi API's, namely the Google Slides API, OpenAI Dall-e, and OpenAI Davinci GPT-3. 
 
+## Screens
+![image](https://cdn.discordapp.com/attachments/1064657270601953300/1066817598760702072/image.png)
+![image](https://cdn.discordapp.com/attachments/1064657270601953300/1066817653597016064/image.png)
+
+
 ## Dev
 
 Running on dev machine:
