@@ -5,7 +5,7 @@ export default function parseText(query: string) {
     const slides = [];
     let slide = {
         title: "",
-        bulletPoints: [] as string[],
+        body: "",
         image: ""
     };
 
@@ -18,17 +18,15 @@ export default function parseText(query: string) {
             }
             slide = {
                 title: "",
-                bulletPoints: [],
+                body: "",
                 image: ""
             }
         } else if (line.startsWith("$Title")) {
             slide.title = line.slice(8);
-        } else if (line.startsWith("$Bullet Points")) {
-            slide.bulletPoints.push(line.slice(16));
+        } else if (line.startsWith("$Body")) {
+            slide.body = line.slice(7);
         }else if (line.startsWith("$Image")) {
             slide.image = line.slice(8);
-        } else if (line.startsWith("-")) {
-            slide.bulletPoints.push(line.slice(2));
         }
     }
     slides.push(slide);

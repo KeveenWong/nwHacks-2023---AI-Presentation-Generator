@@ -126,6 +126,25 @@ export async function createPresentation(title: string, pages: [string, string, 
                     insertionIndex: 0,
                     text: text
                 }
+            },
+            {
+                updatePageProperties: {
+                    objectId: pageId,
+                    pageProperties: {
+                        pageBackgroundFill: {
+                            solidFill: {
+                                color: {
+                                    rgbColor: {
+                                        red: 245/255,
+                                        green: 245/255,
+                                        blue: 245/255
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    fields: "pageBackgroundFill.solidFill.color"
+                }
             }
             // Insert the image
             ];

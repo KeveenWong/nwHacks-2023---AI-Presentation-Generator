@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 import { Configuration, OpenAIApi } from "openai";
-import {token} from '../../../openai-token.json';
+import tokenFile from '../../../openai-token.json';
 
 const configuration = new Configuration({
-  apiKey: token,
+  apiKey: tokenFile.token,
 });
 const openai = new OpenAIApi(configuration);
 

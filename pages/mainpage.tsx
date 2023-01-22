@@ -3,7 +3,7 @@ import styles from '@/styles/Home.module.css'
 import { Textarea, Col, Container, Row } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
 import React, { useState } from 'react';
-import { Text, Input, useInput, Spacer } from "@nextui-org/react";
+import { Loading, Text, Input, useInput, Spacer } from "@nextui-org/react";
 import { MuiColorInput } from 'mui-color-input'
 import Slider from '@mui/material/Slider';
 type NormalColors =
@@ -22,14 +22,15 @@ export default function Mainpage() {
         setColor(color)
       }    
     let [setstatuscolor,toSuccess] = React.useState<NormalColors>(setstatuscolors)
-    let [value, setValue] = React.useState<number>();
+    let [numSlides, setNumSlides] = React.useState<number>(7);
     let [keywords , setKeywords] = React.useState<any>("")
-    let [desc, setDesc] = React.useState<any>("")
+    let [topics, setTopics] = React.useState<any>("")
     let [keydesc, keysetDesc] = React.useState<string>("Optional")
     let [title, setTitle] = React.useState<any>("")
+    let [buttonLoading, setButtonLoading] = React.useState<boolean>(false)
 
     const handleSliderChange = (event: Event, newValue: number | number[]) => {
-          setValue(newValue as number);
+          setNumSlides(newValue as number);
       };
     
      const {
@@ -74,22 +75,16 @@ export default function Mainpage() {
         />
           <Spacer y = {2.5}/>
 
-
-          <Text h3>Pick a color for presentation theme</Text>
-          <MuiColorInput value={color} onChange={handleChange} />
-          <Spacer y = {2.5}/>
-
-
           <Text h3>Select the number of Slides</Text>
-          <Slider defaultValue={50} value={value} aria-label="Default" valueLabelDisplay="auto" max= {25}  onChange={handleChange}/>
+          <Slider value={numSlides} aria-label="Default" valueLabelDisplay="auto" max= {25}  onChange={handleSliderChange}/>
           <Spacer y = {2.5}/>
 
 
-          <Text h3>Description</Text>
-          <Textarea fullWidth={true} placeholder='Enter your description'{...bindings} status = {setstatuscolor} minRows={8}
+          <Text h3>Topics</Text>
+          <Textarea fullWidth={true} placeholder='Enter your topics'{...bindings} status = {setstatuscolor} minRows={8}
           maxRows={15} width = {"xl"} size = "xl"
-          value={desc}
-          onChange = {(text) => {setDesc(desc = text.target.value)}}
+          value={topics}
+          onChange = {(text) => {setTopics(topics = text.target.value)}}
           />
           <Spacer y = {2.5}/>
 
@@ -115,15 +110,25 @@ export default function Mainpage() {
                     toSuccess(
                         setstatuscolor = "success"
                         ); 
-                    setDesc(desc = "Excellent description 🚀"
-                    );
+                        setButtonLoading(true);
+
+                    
                     keysetDesc(keydesc = "Great Keywords")
-                    // await fetch('/api/generate?' + new URLSearchParams({
-                        
-                    //     bar: 's',
-                    // }).toString(), {});
+                    let res = await fetch('/api/generate?' + new URLSearchParams({
+                        title,
+                        topics,
+                        keywords,
+                        nslides: numSlides+"",
+                    }).toString(), {});
+                    const {link} = await res.json();
+                    setButtonLoading(false);
+                    window.open(link, '_blank');
                 }}
-              > Generate Results </Button>  </Row>   
+              > {buttonLoading ? 
+                <Loading type="points" color="currentColor" size="xl" />
+               : 
+               <Text>Generate Results</Text>
+              } </Button>  </Row>   
               </Container>
               </Col>  
         </main>
