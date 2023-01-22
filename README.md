@@ -16,6 +16,12 @@ We've deployed our web-app on Heroku, so that you can try it on your broswer.
 https://smartslides.herokuapp.com/
 
 Have fun!
+
+## Technologies
+The front-end was built using React, NextUI and Material-UI elements.
+
+The back-end was built with TypeScript, Next.js and Google/OpenAi API's, namely the Google Slides API, OpenAI Dall-e, and OpenAI Davinci GPT-3. 
+
 ## Dev
 
 Running on dev machine:
