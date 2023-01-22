@@ -88,13 +88,17 @@ export default function Mainpage() {
                 color="gradient"
                 size="xl"
                 shadow
-                onPress={() => {
+                onPress={async () => {
                     toSuccess(
                         setstatuscolor = "success"
                         ); 
                     setDesc(desc = "Excellent description 🚀"
                     );
                     keysetDesc(keydesc = "Great Keywords")
+                    // await fetch('/api/generate?' + new URLSearchParams({
+                        
+                    //     bar: 's',
+                    // }).toString(), {});
                 }}
               > Generate Results </Button>  </Row>   
               </Container>

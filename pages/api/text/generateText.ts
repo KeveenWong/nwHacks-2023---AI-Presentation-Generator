@@ -24,7 +24,7 @@ export async function generateText(prompt: string) {
         if (response.status !== 200) {
             throw new Error(response.statusText);
         }
-        console.log(response.data);
+        // console.log(response.data);
         return response.data.choices[0].text;
 
       } catch (err) {

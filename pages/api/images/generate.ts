@@ -20,7 +20,7 @@ export const DalleAPI = {
         );
         // console.log(response.data.data)
         const urlData = response.data.data[0].url as string;
-        console.log(urlData);
+        // console.log(urlData);
         // check if the request was successful
         if (response.status !== 200) {
             throw new Error(response.statusText);
