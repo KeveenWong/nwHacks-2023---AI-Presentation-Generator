@@ -18,9 +18,7 @@ type NormalColors =
 export default function Mainpage() {
     let setstatuscolors: NormalColors = "default";
     const [color, setColor] = React.useState('#ffffff')
-    const handleChange = (color: any) => {
-        setColor(color)
-      }    
+      
     let [setstatuscolor,toSuccess] = React.useState<NormalColors>(setstatuscolors)
     let [numSlides, setNumSlides] = React.useState<number>(7);
     let [keywords , setKeywords] = React.useState<any>("")

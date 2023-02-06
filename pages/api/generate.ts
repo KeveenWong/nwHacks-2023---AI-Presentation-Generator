@@ -19,7 +19,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const data = req.query;
-  const prompt = `I want to make a slideshow presentation titled ${data.title} with. The slideshow should include topics such as ${data.topics}. Keywords that should be included are: ${data.keywords}. Can you please generate ${data.nslides} slides worth of presentable content, each slide containing the following parameters:
+  const prompt = `I want to make a slideshow presentation titled ${data.title}. The slideshow should be about the following: ${data.topics}. Keywords that should be included are: ${data.keywords}. Can you please generate ${data.nslides} slides worth of presentable content, each slide containing the following parameters:
 
 - A title 
 - A body paragraph for the current slide

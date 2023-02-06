@@ -1,4 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SmartSlides
+
+![image](https://user-images.githubusercontent.com/67565283/213940628-6d885918-eded-4e07-bc1e-855f8a4a8f2b.png)
+
+AI-powered presentation generator, built with Next.js and Typescript, taking advantage of OpenAI's Dall-E image composition and Davinci GPT-003 AI's to create well-rounded, professional generated slides and custom photos - all you need is an idea!
+
+## Contributors: 
+- Kol Crooks: https://github.com/KolCrooks
+- Kevin Wong: https://github.com/KeveenWong
+- Tanmay Thakral: https://github.com/tanmaythakral
+- Eric Lee: https://github.com/ikamino
+
+## Demo
+We've deployed our web-app on Heroku, so that you can try it on your broswer.
+
+https://smartslides.herokuapp.com/
+
+Have fun!
+
+## Technologies
+The front-end was built using React, NextUI and Material-UI elements.
+
+The back-end was built with TypeScript, Next.js and Google/OpenAi API's, namely the Google Slides API, OpenAI Dall-e, and OpenAI Davinci GPT-3. 
+
+## Screens
+![image](https://cdn.discordapp.com/attachments/1064657270601953300/1066817598760702072/image.png)
+![image](https://cdn.discordapp.com/attachments/1064657270601953300/1066817653597016064/image.png)
+
+
+## Dev
+
+Running on dev machine:
+
+`This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
@@ -36,3 +69,4 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
