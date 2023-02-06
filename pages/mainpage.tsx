@@ -18,7 +18,7 @@ type NormalColors =
 export default function Mainpage() {
     let setstatuscolors: NormalColors = "default";
     const [color, setColor] = React.useState('#ffffff')
-    const handleChange = (color) => {
+    const handleChange = (color: any) => {
         setColor(color)
       }    
     let [setstatuscolor,toSuccess] = React.useState<NormalColors>(setstatuscolors)
